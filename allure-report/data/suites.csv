@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Apr 27 23:14:15 WAT 2022","Wed Apr 27 23:14:23 WAT 2022","7459","","My Login application","","My Login application","should login with valid credentials","should login with valid credentials",""
