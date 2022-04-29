@@ -6,6 +6,8 @@
 
 module.exports = class basePage{
     open (path) {
+        browser.maximizeWindow();
         return browser.url(`https://app.deel.training/${path}`)
+        
     }
 }
