@@ -19,8 +19,16 @@ class createContractPage{
         return $('[data-qa="contractor-tax-residence"][class="input-container"]');
     }
 
+    get contratorTaxResidenceText () {
+        return $('input[id="react-select-3-input"]');
+    }
+
     get contratorStateResidence () {
         return $('[data-qa="contractor-tax-residence-province"]');
+    }
+
+    get contratorStateResidenceText () {
+        return $('#react-select-5-input');
     }
 
     get jobTitle () {
@@ -28,7 +36,10 @@ class createContractPage{
     }
 
     get seniorityLevel () {
-        return $('[class="input-container"][data-qa="selector-seniority-level"]');
+        return $('[data-qa="selector-seniority-level"]');
+    }
+    get seniorityLevelText () {
+        return $('#react-select-4-input');
     }
 
     get scopeofWork () {
@@ -43,6 +54,10 @@ class createContractPage{
         return $('[data-qa="currency-select"]');
     }
 
+    get paymentCurrencyText () {
+        return $('#react-select-6-input');
+    }
+
     get setRate () {
         return $('input[name="rate"]');
     }
@@ -55,8 +70,8 @@ class createContractPage{
         return $('[data-qa="cycle-select"][class="input-container"]');
     }
 
-    get paymentFrequency () {
-        return $('[data-qa="cycle-select"][class="input-container"]');
+    get paymentFrequencyText () {
+        return $('#react-select-7-input');
     }
 
     get invoicingCheckbox () {
@@ -64,7 +79,7 @@ class createContractPage{
     }
 
     get paymentDue () {
-        return $('.[data-qa="payments-occur"][class="input-container"]');
+        return $('[data-qa="payments-occur"][class="input-container"]');
     }
 
     get invoicingCycleEnd () {
@@ -107,15 +122,21 @@ class createContractPage{
     }
 
     async fillContractName(name){
+        await this.contractName.waitForClickable({ timeout: 10000 });
         await this.contractName.setValue(name);
     }
 
-    async selectCountry(country){
-        await this.contratorTaxResidence.selectByVisibleText(country);
+    async selectCountry(country){ 
+       await this.contratorTaxResidence.click();
+       await this.contratorTaxResidenceText.setValue(country);
+       await browser.keys("Enter");
+        
     }
 
     async selectState(state){
-        await this.contratorStateResidence.selectByVisibleText(state);
+        await this.contratorStateResidence.click();
+        await this.contratorStateResidenceText.setValue(state);
+        await browser.keys("Enter");
     }
 
     async enterJobTitle(name){
@@ -123,7 +144,9 @@ class createContractPage{
     }
 
     async selectJobLevel(level){
-        await this.seniorityLevel.selectByVisibleText(level);
+        await this.seniorityLevel.click();
+        await this.seniorityLevelText.setValue(level);
+        await browser.keys("Enter");
     }
 
     async defineScopeOfWork(text){
@@ -131,16 +154,25 @@ class createContractPage{
     }
 
     async selectContractStartDate(){
+        await this.startDate.click();
+        await browser.keys("ArrowLeft");
+        await browser.keys("Enter");
+
+
         
     }
 
     async choosePaymentCurrency(currency){
-        await this.paymentCurrency.selectByVisibleText(currency);
+        await this.paymentCurrency.click();
+        await this.paymentCurrencyText.setValue(currency);
+        await browser.keys("Enter");
 
     }
 
     async choosePaymentFrequency(frequency){
-        await this.paymentFrequency.selectByVisibleText(frequency);
+        await this.paymentFrequency.click();
+        await browser.keys("ArrowDown");
+        await browser.keys("Enter");
     }
 
     async enterPaymentRate(rate){

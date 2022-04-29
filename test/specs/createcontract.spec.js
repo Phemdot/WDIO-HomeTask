@@ -15,13 +15,13 @@ describe('Create A Contract', () => {
         await createContractPage.selectCountry(createContractData.contractorresidence);
         await createContractPage.selectState(createContractData.contractorstate);
         await createContractPage.enterJobTitle(createContractData.jobtitle);
-        await createContractPage.selectJobLevel();
-        await createContractPage.defineScopeOfWork();
+        await createContractPage.selectJobLevel(createContractData.level);
+        await createContractPage.defineScopeOfWork(createContractData.scope);
         await createContractPage.selectContractStartDate();
         await createContractPage.clickOnNextButton();
         await createContractPage.choosePaymentCurrency(createContractData.currency);
         await createContractPage.enterPaymentRate(createContractData.rate);
-        await createContractPage.choosePaymentFrequency();
+        await createContractPage.choosePaymentFrequency(createContractData.frequency);
         await createContractPage.clickOnNextButton();
         await createContractPage.clickOnNextButton();
         await createContractPage.clickOnNextButton();
