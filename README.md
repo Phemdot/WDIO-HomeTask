@@ -15,7 +15,7 @@ It uses modern languages, tools, and libraries that are well-known in the testin
 
 - It's free;
 - Available in Windows, Linux and macOS;
-- Great extensions for Cypress, and Docker;
+- Great extensions for WDIO, and Docker;
 - This project already includes all the configurations for a productive environment.
 
 IntelliJ WebStorm, or IDEA Ultimate, are also good choices, but are paid, so it's a matter of choice!
