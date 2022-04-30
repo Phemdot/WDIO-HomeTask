@@ -8,9 +8,14 @@ const loginData = require('../testdata/logindata');
 describe('Create A Contract', () => {
     it('create a fixed contract', async () => {
         await loginPage.open();
+        //Client logs in to the application
         await loginPage.login(loginData.email, loginData.password);
+
+        //This handles the creation of the fixed rate contract
         await createContractPage.clickOnCreateContract();
         await createContractPage.selectFixedRateContract();
+
+        //Client fills information for creating fixed rate contract
         await createContractPage.fillContractName(createContractData.contractname);
         await createContractPage.selectCountry(createContractData.contractorresidence);
         await createContractPage.selectState(createContractData.contractorstate);
@@ -25,7 +30,10 @@ describe('Create A Contract', () => {
         await createContractPage.clickOnNextButton();
         await createContractPage.clickOnNextButton();
         await createContractPage.clickOnNextButton();
-        //await createContractPage.submitContract();
+        await createContractPage.submitContract();
+        await createContractPage.reviewContract();
+        await createContractPage.signContract();
+        //await expect(createContractPage.h1).toHaveValue(createContractData.contractname);
 
 
         

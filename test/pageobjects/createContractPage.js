@@ -1,5 +1,6 @@
 
 const loginPage = require('./loginPage');
+const LoginData = require('../testdata/createcontractdata')
 
 class createContractPage{
 
@@ -13,6 +14,10 @@ class createContractPage{
 
     get contractName() {
         return $('input[name="name"]');
+    }
+
+    get h1() {
+        return $('#root > div:nth-child(2) > div.sidebar-space > div > div.mb-10 > div.editable-text > h1');
     }
 
     get contratorTaxResidence () {
@@ -86,20 +91,8 @@ class createContractPage{
         return $('[data-qa="work-cycle-end"][class="input-container"]');
     }
 
-    get paymentDetailsNextButton () {
-        return $('[data-qa="next"][type="submit"]');
-    }
-
     get firstPaymentDate () {
         return $('[data-qa="selector-first-payment-date"]');
-    }
-
-    get defineDateNextButton () {
-        return $('[data-qa="next"][type="submit"]');
-    }
-
-    get benefitsNextButton () {
-        return $('[data-qa="next"]');
     }
 
     get nextButton () {
@@ -110,10 +103,21 @@ class createContractPage{
         return $('[data-qa="create-contract"]');
     }
 
+    get reviewContractButton () {
+        return $('[data-qa="review-sign"]');
+    }
+
+    get signContractButton () {
+        return $('[data-qa="agree-sign"]');
+    }
+
+   
+
 
     async clickOnCreateContract(){
         await this.createContractButton.waitForClickable({ timeout: 10000 });
         await this.createContractButton.click();
+        await expect(browser).toHaveUrlContaining('create');
     }
 
     async selectFixedRateContract(){
@@ -190,6 +194,20 @@ class createContractPage{
     async submitContract(){
         await this.submitContractButton.click();
     }
+
+    async reviewContract(){
+        await this.reviewContractButton.click();
+    }
+
+    async signContract(){
+        await this.signContractButton.click();
+        await expect(browser).toHaveUrlContaining('contract');
+        
+    }
+
+    
+
+
 
 }
 

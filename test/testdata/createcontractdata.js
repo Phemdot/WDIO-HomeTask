@@ -1,5 +1,5 @@
 module.exports = {
-    contractname: 'TA Arch',
+    contractname: 'EMEA Test Archyu',
     currency: 'GBP',
     contractorresidence: 'United States',
     contractorstate: 'Colorado',
