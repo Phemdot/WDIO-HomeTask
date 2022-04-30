@@ -33,6 +33,8 @@ get acceptCookieBanner () {
 get welcomeModal () {
     return $('[class="deel-ui__whats-new-popup__icon-button"]');
 }
+
+
 /**
  * a method to encapsule automation code to interact with the page
  * e.g. to login using username and password
