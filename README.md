@@ -51,4 +51,5 @@ Page object that are meant to be used by any test, must go into the `WDIO/test/p
 
 Test data must go into the `test/testdata` folder, with the `.js` extension. This can also be provided as json files.
 
-You can open the WDIO Test Runner (`./nvmw npm run wdio`) to see the tests being executed every time you save a test.
+You can open the WDIO Test Runner (`./nvmw npm run wdio`) to execute all test.
+or execute `npx wdio run .\wdio.conf.js --spec createcontract.spec.js` to run the create fixed contract test alone
