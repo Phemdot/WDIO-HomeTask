@@ -6,6 +6,10 @@ const loginData = require('../testdata/logindata');
 
 
 describe('Create A Contract', () => {
+    beforeEach(async () => {
+        // ...
+    }, 2);
+
     it('create a fixed contract', async () => {
         await loginPage.open();
         //Client logs in to the application

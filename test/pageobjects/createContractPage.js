@@ -1,6 +1,6 @@
 
 const loginPage = require('./loginPage');
-const LoginData = require('../testdata/createcontractdata')
+const createContractData = require('../testdata/createcontractdata')
 
 class createContractPage{
 
@@ -188,6 +188,8 @@ class createContractPage{
     }
 
     async clickOnNextButton(){
+        await this.nextButton.waitForDisplayed({timeout: 30000});
+        await this.nextButton.scrollIntoView();
         await this.nextButton.click();
     }
 
@@ -196,12 +198,15 @@ class createContractPage{
     }
 
     async reviewContract(){
+        await this.reviewContractButton.waitForDisplayed({timeout: 30000});
         await this.reviewContractButton.click();
     }
 
     async signContract(){
+        await this.signContractButton.waitForDisplayed({timeout: 30000});
         await this.signContractButton.click();
         await expect(browser).toHaveUrlContaining('contract');
+        
         
     }
 

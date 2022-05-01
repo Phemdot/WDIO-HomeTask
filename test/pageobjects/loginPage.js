@@ -43,9 +43,9 @@ async login (email, password) {
     await this.inputEmail.setValue(email);
     await this.inputPassword.setValue(password);
     await this.btnSubmit.click();
-    await this.welcomeModal.waitForClickable({ timeout: 30000 });
+    await this.welcomeModal.waitForClickable({ timeout: 50000 });
     await this.welcomeModal.click();
-    await this.acceptCookieBanner.waitForClickable({ timeout: 30000 });
+    await this.acceptCookieBanner.waitForClickable({ timeout: 50000 });
     await this.acceptCookieBanner.click();
 }
 
